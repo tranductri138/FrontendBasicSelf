@@ -1,0 +1,21 @@
+body {
+    background-color: powderblue;
+}
+
+h1 {
+    color: blue;
+}
+
+p {
+    color: red;
+}
+
+a:hover {
+    color: violet;
+    background-color: transparent;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-radius: 10px;
+  }
