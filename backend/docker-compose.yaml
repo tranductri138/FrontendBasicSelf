@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: db_postgres
+    image: postgres:12-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    # volumes:
+    #   - ./data/var/lib/postgresql
+    environment:
+      POSTGRES_PASSWORD: tri123
+ 
+  app:
+    container_name: app-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - HOST=db
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
